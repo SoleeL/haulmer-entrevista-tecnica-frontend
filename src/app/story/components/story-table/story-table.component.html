@@ -33,7 +33,9 @@
                     *matCellDef="let element"
                     matTooltip="{{ element.url }}">
                     <a [href]="element.url" target="_blank">
-                        {{ element.title }} | {{ getDomain(element.url) }}
+                        {{ element.title }}
+
+                        <!-- {{ element.title }} | {{ getDomain(element.url) }} -->
                     </a>
                 </td>
             </ng-container>

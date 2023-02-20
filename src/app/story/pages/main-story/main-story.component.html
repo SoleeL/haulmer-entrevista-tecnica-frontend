@@ -1,3 +1,12 @@
 <div class="main-body">
-    <app-story-table [dataSource]="dataSource"></app-story-table>
+    <!-- TODO: Anadir animacion de carga circular -->
+    <div *ngIf="!dataSource; else divTabla" class="alert alert-info">
+        Espere por favor...
+    </div>
+    <ng-template #divTabla>
+        <!-- TODO: Anadir animacion de entrada para la tabla -->
+        <!-- TODO: Anadir botos de recarga de los datos -->
+        <!-- TODO: Anadir Cron para recarga automatica de los datos -->
+        <app-story-table [dataSource]="dataSource"></app-story-table>
+    </ng-template>
 </div>
