@@ -12,9 +12,9 @@
                 <mat-card class="node-card">
                     <mat-card-header>
                         <mat-card-title>{{ node.item.by }}</mat-card-title>
-                        <mat-card-subtitle>{{
-                            node.item.time
-                        }}</mat-card-subtitle>
+                        <mat-card-subtitle>
+                            {{ getDate(node.item) | date : 'medium' }}
+                        </mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
                         <p [innerHTML]="node.item.text"></p>
@@ -41,9 +41,9 @@
                 <mat-card class="node-card">
                     <mat-card-header>
                         <mat-card-title>{{ node.item.by }}</mat-card-title>
-                        <mat-card-subtitle>{{
-                            node.item.time
-                        }}</mat-card-subtitle>
+                        <mat-card-subtitle>
+                            {{ getDate(node.item) | date : 'medium' }}
+                        </mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
                         <p [innerHTML]="node.item.text"></p>

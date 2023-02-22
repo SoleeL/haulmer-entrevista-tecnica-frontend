@@ -55,4 +55,9 @@ export class CommentComponent implements OnInit {
 
     hasChild = (_: number, _nodeData: DynamicFlatNode<Comments>) =>
         _nodeData.expandable;
+
+    getDate(node: Comments) {
+        let date = new Date(node.time * 1000);
+        return date;
+    }
 }

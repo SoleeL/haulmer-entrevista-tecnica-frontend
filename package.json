@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "start-pwa": "ng build --base-href=/ && http-server -p 8080 -c-1 dist/haulmer-entrevista-tecnica-frontend"
+    "start-pwa": "ng build --configuration production --aot --base-href=/ && http-server -p 8080 -c-1 dist/haulmer-entrevista-tecnica-frontend"
   },
   "private": true,
   "dependencies": {

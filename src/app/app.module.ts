@@ -21,6 +21,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
         MaterialModule,
         StoryModule,
         CommentModule,
+
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: !isDevMode(),
             // Register the ServiceWorker as soon as the application is stable
