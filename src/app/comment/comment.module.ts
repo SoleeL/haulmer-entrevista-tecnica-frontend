@@ -4,9 +4,16 @@ import { CommonModule } from '@angular/common';
 import { MainCommentComponent } from './pages/main-comment/main-comment.component';
 
 import { MaterialModule } from '../shared/material.module';
+import { StoryComponent } from './components/story/story.component';
+// import { CommentComponent } from './components/comment/comment.component';
+import { CommentDynamicComponent } from './components/comment-dynamic/comment-dynamic.component';
 
 @NgModule({
-    declarations: [MainCommentComponent],
+    declarations: [
+        MainCommentComponent,
+        StoryComponent,
+        CommentDynamicComponent,
+    ],
     imports: [CommonModule, MaterialModule],
     exports: [MainCommentComponent],
 })

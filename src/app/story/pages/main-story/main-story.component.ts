@@ -19,6 +19,7 @@ export class MainStoryComponent implements OnInit {
     // TODO: disparar carga del local storage para evitar recarga de datos
 
     ngOnInit() {
+        // TODO: Cambiar fuente de datos
         // this.loadData();
 
         this.dataSource = DATA;
@@ -35,7 +36,6 @@ export class MainStoryComponent implements OnInit {
             .subscribe({
                 next: storys => {
                     this.dataSource = storys;
-                    console.log(this.dataSource);
                 },
                 error: (err: any) => {
                     console.log(err);

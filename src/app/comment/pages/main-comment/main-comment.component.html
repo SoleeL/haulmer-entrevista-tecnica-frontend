@@ -1,3 +1,13 @@
-<p>main-comment works!</p>
+<!-- TODO: Condicionar la existencia de la etiqueta comment a la de la etiqueta story -->
 
-<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+<div class="main-body">
+    <!-- TODO: Anadir animacion de carga circular -->
+    <div *ngIf="!comments; else divTabla" class="alert alert-info">
+        Cargando historia, por favor espere...
+    </div>
+    <ng-template #divTabla>
+        <app-story [story]="story"></app-story>
+        <!-- <app-comment [comments]="comments"></app-comment> -->
+        <app-comment-dynamic [comments]="comments"></app-comment-dynamic>
+    </ng-template>
+</div>

@@ -1,0 +1,59 @@
+<!-- TODO: Anadir UTF-8 -->
+
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>Comments</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                <button mat-icon-button disabled></button>
+                <mat-card class="node-card">
+                    <mat-card-header>
+                        <mat-card-title>{{ node.item.by }}</mat-card-title>
+                        <mat-card-subtitle>{{
+                            node.item.time
+                        }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{ node.item.text }}</p>
+                    </mat-card-content>
+                </mat-card>
+            </mat-tree-node>
+            <mat-tree-node
+                *matTreeNodeDef="let node; when: hasChild"
+                matTreeNodePadding>
+                <button
+                    mat-icon-button
+                    [attr.aria-label]="'Toggle ' + node.item"
+                    matTreeNodeToggle>
+                    <mat-icon class="mat-icon-rtl-mirror">
+                        {{
+                            treeControl.isExpanded(node)
+                                ? 'expand_more'
+                                : 'chevron_right'
+                        }}
+                    </mat-icon>
+                </button>
+
+                <mat-card class="node-card">
+                    <mat-card-header>
+                        <mat-card-title>{{ node.item.by }}</mat-card-title>
+                        <mat-card-subtitle>{{
+                            node.item.time
+                        }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{ node.item.text }}</p>
+                    </mat-card-content>
+                </mat-card>
+
+                <!-- <mat-progress-bar
+                    *ngIf="node.isLoading"
+                    mode="indeterminate"
+                    class="example-tree-progress-bar"></mat-progress-bar> -->
+            </mat-tree-node>
+        </mat-tree>
+    </mat-card-content>
+</mat-card>

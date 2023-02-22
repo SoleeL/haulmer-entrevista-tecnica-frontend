@@ -8,7 +8,7 @@ table {
     width: 100%;
 }
 
-.example-container {
+.container {
     position: relative;
 }
 
@@ -16,10 +16,6 @@ td a, button {
     width: 100%;
     display: block;
 }
-
-
-
-
 
 .mdc-data-table__header-cell {
     text-align: center;

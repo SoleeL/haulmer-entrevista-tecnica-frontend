@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, forkJoin } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 import { Story } from '../interfaces/story.interface';
 

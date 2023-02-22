@@ -10,11 +10,3 @@ export interface Story {
     type: string;
     url?: string;
 }
-
-interface Comment {
-    postId: String;
-    id: String;
-    name: String;
-    email: Date;
-    body: String;
-}

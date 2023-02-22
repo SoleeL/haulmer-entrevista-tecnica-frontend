@@ -1,0 +1,27 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title-group>
+            <mat-card-title>
+                <a [href]="story.url" target="_blank">
+                    {{ story.title }}
+                </a>
+            </mat-card-title>
+            <mat-card-subtitle *ngIf="domain">
+                {{ domain.hostname }}
+            </mat-card-subtitle>
+            <mat-card-subtitle>
+                by {{ story.by }} on {{ date.toUTCString() }}
+            </mat-card-subtitle>
+            <button mat-fab extended color="primary" disabled>
+                <mat-icon>mood</mat-icon>
+                {{ story.score }}
+                Score
+            </button>
+        </mat-card-title-group>
+    </mat-card-header>
+
+    <mat-card-content *ngIf="story.text">
+        <mat-divider></mat-divider>
+        <p>{{ story.text }}</p>
+    </mat-card-content>
+</mat-card>

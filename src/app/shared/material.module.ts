@@ -17,6 +17,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatTreeModule } from '@angular/material/tree';
+
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -44,6 +47,8 @@ import { MatSelectModule } from '@angular/material/select';
         MatTooltipModule,
         MatInputModule,
         MatProgressSpinnerModule,
+        MatCardModule,
+        MatTreeModule,
     ],
     exports: [
         CommonModule,
@@ -63,6 +68,8 @@ import { MatSelectModule } from '@angular/material/select';
         MatTooltipModule,
         MatInputModule,
         MatProgressSpinnerModule,
+        MatCardModule,
+        MatTreeModule,
     ],
 })
 export class MaterialModule {}

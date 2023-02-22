@@ -1,0 +1,25 @@
+.card {
+    margin-bottom: 8px;
+    width: 40%;
+    margin: 25px auto;
+}
+
+.node-card {
+    width: 95%;
+    margin: 10px auto;
+}
+
+mat-card-title {
+    margin-right: 20px ;
+}
+
+.leaf-node {
+    padding-left: 30px;
+}
+
+.tree ul,
+.tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
