@@ -5,7 +5,7 @@ import { Story } from '../../interfaces/comment.interface';
 import { Comments } from '../../interfaces/comment.interface';
 
 import { StorieCommentService } from '../../services/storie-comment.service';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 
 /**
  * Componente principal de la vista '/story/:id'
@@ -41,8 +41,8 @@ export class MainCommentComponent implements OnInit {
                 )
             )
             .subscribe(story => {
-                console.log(story.type != 'story');
-                if (story == null || story.type != 'story') {
+                console.log(!story);
+                if (!story || story == null || story.type != 'story') {
                     // Si lo que se obtiene no es una story en la subruta /:id
                     // entonces se redirecciona a /404
                     this.zone.runOutsideAngular(() => {
@@ -51,8 +51,10 @@ export class MainCommentComponent implements OnInit {
                 }
                 this.story = story;
 
-                // Recuperar los comentarios de la historia.
-                this.loadCommentsData(this.story.kids!);
+                if (this.story.kids) {
+                    // Recuperar los comentarios de la historia.
+                    this.loadCommentsData(this.story.kids!);
+                }
             });
     }
 
@@ -60,6 +62,7 @@ export class MainCommentComponent implements OnInit {
     loadCommentsData(ids: number[]) {
         this.storieCommentService
             .getDataComments(this.story.kids!)
+            .pipe(tap(console.log))
             .subscribe(comments => {
                 this.comments = comments!;
                 // Eliminar comentarios no aptos.

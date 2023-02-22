@@ -1,0 +1,12 @@
+.card {
+    margin-bottom: 8px;
+    padding-bottom: 15px;
+    width: 40%;
+    margin: 25px auto;
+}
+
+mat-card-title {
+    margin-right: 20px ;
+}
+
+

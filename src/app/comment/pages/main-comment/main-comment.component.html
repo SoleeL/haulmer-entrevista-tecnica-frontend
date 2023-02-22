@@ -3,14 +3,24 @@
 
 <div class="main-body">
     <!-- TODO: Anadir animacion de carga circular -->
-    <div *ngIf="!comments; else storyComments">
+    <div *ngIf="!story; else storyView">
         <div class="wrapper center">
             <mat-spinner class="inner"></mat-spinner>
         </div>
     </div>
 
-    <ng-template #storyComments>
+    <ng-template #storyView>
         <app-story [story]="story"></app-story>
-        <app-comment [comments]="comments"></app-comment>
+
+        <div *ngIf="!comments; else commentView">
+            <mat-card class="card">
+                <mat-card-header>
+                    <mat-card-title>No comments</mat-card-title>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <ng-template #commentView>
+            <app-comment [comments]="comments"></app-comment>
+        </ng-template>
     </ng-template>
 </div>

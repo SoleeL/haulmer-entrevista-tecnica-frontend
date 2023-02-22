@@ -31,7 +31,8 @@ export class CommentComponent implements OnInit {
 
     constructor(private database: DynamicDatabase) {}
 
-    ngOnInit(): void {
+    ngOnInit() {
+        console.log(this.comments);
         // Se establecen los comentarios de primer nivel en el servicio
         this.database.setRootLevel(this.comments);
 
