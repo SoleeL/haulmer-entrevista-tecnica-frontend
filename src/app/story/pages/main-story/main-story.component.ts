@@ -3,7 +3,6 @@ import { switchMap, tap } from 'rxjs/operators';
 import { Story } from '../../interfaces/story.interface';
 
 import { BestStoriesService } from '../../services/best-stories.service';
-import { DATA } from './data';
 
 @Component({
     selector: 'app-main-story',
@@ -19,10 +18,7 @@ export class MainStoryComponent implements OnInit {
     // TODO: disparar carga del local storage para evitar recarga de datos
 
     ngOnInit() {
-        // TODO: Cambiar fuente de datos
-        // this.loadData();
-
-        this.dataSource = DATA;
+        this.loadData();
     }
 
     loadData() {

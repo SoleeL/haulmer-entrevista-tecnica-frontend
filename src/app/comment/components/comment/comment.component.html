@@ -5,7 +5,7 @@
         <mat-card-title>Comments</mat-card-title>
     </mat-card-header>
 
-    <mat-card-content>
+    <mat-card-content class="card-content">
         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
             <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
                 <button mat-icon-button disabled></button>
@@ -17,7 +17,7 @@
                         }}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
-                        <p>{{ node.item.text }}</p>
+                        <p [innerHTML]="node.item.text"></p>
                     </mat-card-content>
                 </mat-card>
             </mat-tree-node>
@@ -26,6 +26,7 @@
                 matTreeNodePadding>
                 <button
                     mat-icon-button
+                    color="primary"
                     [attr.aria-label]="'Toggle ' + node.item"
                     matTreeNodeToggle>
                     <mat-icon class="mat-icon-rtl-mirror">
@@ -45,14 +46,16 @@
                         }}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
-                        <p>{{ node.item.text }}</p>
+                        <p [innerHTML]="node.item.text"></p>
                     </mat-card-content>
                 </mat-card>
 
+                <!-- TODO: Colocar barra debajo de la mat-card mientras cargan los subcomentario -->
                 <!-- <mat-progress-bar
                     *ngIf="node.isLoading"
                     mode="indeterminate"
-                    class="example-tree-progress-bar"></mat-progress-bar> -->
+                    class="tree-progress-bar">
+                </mat-progress-bar> -->
             </mat-tree-node>
         </mat-tree>
     </mat-card-content>

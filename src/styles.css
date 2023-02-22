@@ -2,3 +2,30 @@
 
 html, body { height: 100%; }
 body { margin: 100; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.main-body {
+    padding-top: 25px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+}
+
+mat-spinner {
+    margin: 0 auto;
+    position: fixed;
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+  /* +++++++ STYLES +++++++ */
+.wrapper {
+    margin-top: calc(35vh);
+}
+
+

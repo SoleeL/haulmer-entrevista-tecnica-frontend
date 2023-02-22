@@ -16,7 +16,12 @@ export class DynamicDatabase {
 
     initialData(): DynamicFlatNode<Comments>[] {
         return this.rootLevelNodes.map(
-            comment => new DynamicFlatNode(comment, 0, true)
+            // Considerar cambiar el tercer argumento
+            //  de DynamicFlatNode dependiendo del contexto.
+            // En la documentacion se considera que todos los elementos del
+            //  arbol tienen hojas.
+            comment =>
+                new DynamicFlatNode(comment, 0, this.isExpandable(comment))
         );
     }
 

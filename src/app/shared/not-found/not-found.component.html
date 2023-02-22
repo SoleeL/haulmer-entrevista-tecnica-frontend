@@ -1,1 +1,13 @@
-<p>not-found works!</p>
+<mat-grid-list cols="1" rowHeight="2:0.2">
+    <div class="wrapper center">
+        <div class="fof inner">
+            <h1>Error 404</h1>
+        </div>
+    </div>
+
+    <mat-grid-tile>
+        <a [routerLink]="['/top']">
+            <button mat-raised-button>Go Home</button>
+        </a>
+    </mat-grid-tile>
+</mat-grid-list>

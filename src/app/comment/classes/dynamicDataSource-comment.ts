@@ -64,6 +64,7 @@ export class DynamicDataSource
     toggleNode(node: DynamicFlatNode<Comments>, expand: boolean) {
         const children = this._database
             .getChildren(node.item)
+            .pipe()
             .subscribe(childrens => {
                 // TODO:
                 //  Hay comentarios con estados distintos de 'deleted' o 'dead'
@@ -71,7 +72,6 @@ export class DynamicDataSource
                 //  El motivo es el indice obtenido por el nodo
 
                 const index = this.data.indexOf(node);
-                console.log(index);
 
                 // TODO:
                 // Como se eliminan solo los comentarios en el listado actual,

@@ -13,6 +13,10 @@ mat-card-title {
     margin-right: 20px ;
 }
 
+mat-card-content.card-content {
+    padding-left: 0;
+}
+
 .leaf-node {
     padding-left: 30px;
 }
@@ -23,3 +27,16 @@ mat-card-title {
   margin-bottom: 0;
   list-style-type: none;
 }
+
+.mat-tree-node{
+    align-items: flex-start;
+}
+
+button {
+    margin: 10px;
+    font-size:28px !important;
+}
+
+
+
+

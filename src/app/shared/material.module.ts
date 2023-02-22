@@ -19,6 +19,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -49,6 +50,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatProgressSpinnerModule,
         MatCardModule,
         MatTreeModule,
+        MatGridListModule,
     ],
     exports: [
         CommonModule,
@@ -70,6 +72,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatProgressSpinnerModule,
         MatCardModule,
         MatTreeModule,
+        MatGridListModule,
     ],
 })
 export class MaterialModule {}

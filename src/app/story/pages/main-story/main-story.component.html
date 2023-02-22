@@ -1,8 +1,11 @@
 <div class="main-body">
     <!-- TODO: Anadir animacion de carga circular -->
-    <div *ngIf="!dataSource; else divTabla" class="alert alert-info">
-        Espere por favor...
+    <div *ngIf="!dataSource; else divTabla">
+        <div class="wrapper center">
+            <mat-spinner class="inner"></mat-spinner>
+        </div>
     </div>
+
     <ng-template #divTabla>
         <!-- TODO: Anadir animacion de entrada para la tabla -->
         <!-- TODO: Anadir botos de recarga de los datos -->
