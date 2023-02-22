@@ -17,7 +17,7 @@
                         }}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
-                        <p>{{ node.item.text }}</p>
+                        <p [innerHTML]="node.item.text"></p>
                     </mat-card-content>
                 </mat-card>
             </mat-tree-node>
@@ -45,7 +45,7 @@
                         }}</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
-                        <p>{{ node.item.text }}</p>
+                        <p [innerHTML]="node.item.text"></p>
                     </mat-card-content>
                 </mat-card>
 

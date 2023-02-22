@@ -13,22 +13,26 @@ import { DynamicDatabase } from '../../services/dynamic-database.service';
 export class CommentDynamicComponent implements OnInit {
     @Input() comments!: Comments[];
 
-    constructor(private database: DynamicDatabase) {
-        console.log(this.comments);
-        database.setRootLevel(this.comments);
+    treeControl!: FlatTreeControl<DynamicFlatNode<Comments>>;
+
+    dataSource!: DynamicDataSource;
+
+    constructor(private database: DynamicDatabase) {}
+
+    ngOnInit(): void {
+        this.database.setRootLevel(this.comments);
 
         this.treeControl = new FlatTreeControl<DynamicFlatNode<Comments>>(
             this.getLevel,
             this.isExpandable
         );
-        this.dataSource = new DynamicDataSource(this.treeControl, database);
+        this.dataSource = new DynamicDataSource(
+            this.treeControl,
+            this.database
+        );
 
-        this.dataSource.data = database.initialData();
+        this.dataSource.data = this.database.initialData();
     }
-
-    treeControl: FlatTreeControl<DynamicFlatNode<Comments>>;
-
-    dataSource: DynamicDataSource;
 
     getLevel = (node: DynamicFlatNode<Comments>) => node.level;
 
@@ -36,9 +40,4 @@ export class CommentDynamicComponent implements OnInit {
 
     hasChild = (_: number, _nodeData: DynamicFlatNode<Comments>) =>
         _nodeData.expandable;
-
-    ngOnInit(): void {
-        console.log(this.comments);
-        console.log('AAAAAAAAAAA:', this.comments);
-    }
 }

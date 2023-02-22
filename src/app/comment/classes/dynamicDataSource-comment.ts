@@ -64,9 +64,34 @@ export class DynamicDataSource
     toggleNode(node: DynamicFlatNode<Comments>, expand: boolean) {
         const children = this._database
             .getChildren(node.item)
-            .subscribe(children => {
+            .subscribe(childrens => {
+                // TODO:
+                //  Hay comentarios con estados distintos de 'deleted' o 'dead'
+                //  que se estan renderizando de igual forma.
+                //  El motivo es el indice obtenido por el nodo
+
                 const index = this.data.indexOf(node);
-                if (!children || index < 0) {
+                console.log(index);
+
+                // TODO:
+                // Como se eliminan solo los comentarios en el listado actual,
+                //  se renderiza igual el boton para abrir sus respuesta.
+
+                // Existen 2 soluciones:
+
+                // 1.- Buscar forma para analizar el estado de los hijos del
+                //  comentario principal antes de enviarlo al arbol,
+                //  y eliminarlos con antelacion.
+
+                // 2.- Permitir que existan. Algunos comentarios 'deleted' o
+                //  'dead' aun contienen subcomentarios, y podria ser buena
+                //  idea renderizarlos de todas formas para ver el hilo
+                //  completo.
+
+                childrens = childrens!.filter(comment => !comment.deleted);
+                childrens = childrens!.filter(comment => !comment.dead);
+
+                if (!childrens || index < 0) {
                     // If no children, or cannot find the node, no op
                     return;
                 }
@@ -74,7 +99,7 @@ export class DynamicDataSource
                 node.isLoading = true;
                 setTimeout(() => {
                     if (expand) {
-                        const nodes = children.map(
+                        const nodes = childrens!.map(
                             comment =>
                                 new DynamicFlatNode(
                                     comment,

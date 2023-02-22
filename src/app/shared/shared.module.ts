@@ -11,6 +11,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
     declarations: [ToolbarComponent, NotFoundComponent],
     imports: [CommonModule, RouterModule, MaterialModule],
-    exports: [ToolbarComponent],
+    exports: [ToolbarComponent, NotFoundComponent],
 })
 export class SharedModule {}
