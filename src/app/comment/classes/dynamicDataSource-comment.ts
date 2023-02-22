@@ -64,7 +64,7 @@ export class DynamicDataSource
     toggleNode(node: DynamicFlatNode<Comments>, expand: boolean) {
         const children = this._database
             .getChildren(node.item)
-            .pipe()
+            // !! Mi aporte a este codigo
             .subscribe(childrens => {
                 // TODO:
                 //  Hay comentarios con estados distintos de 'deleted' o 'dead'

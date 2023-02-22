@@ -1,3 +1,7 @@
+/**
+ * @field descendants: cantidad de comentarios totales
+ * @field kids: ids de los comentarios principales de la historia
+ */
 export interface Story {
     by: string;
     descendants?: number;

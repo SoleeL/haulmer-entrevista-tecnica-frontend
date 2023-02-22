@@ -10,6 +10,10 @@ import { DynamicFlatNode } from '../../classes/dynamicFlatNode-comment.class';
 import { Comments } from '../../interfaces/comment.interface';
 import { DynamicDatabase } from '../../services/dynamic-database.service';
 
+/**
+ * Subcomponente de la vista '/story/:id'
+ *      Muestra una tarjeta con los detalles de la historia.
+ */
 @Component({
     selector: 'app-comment',
     templateUrl: './comment.component.html',
@@ -19,24 +23,29 @@ import { DynamicDatabase } from '../../services/dynamic-database.service';
 export class CommentComponent implements OnInit {
     @Input() comments!: Comments[];
 
+    // TODO: Buscar mas informacion sobre esto
     treeControl!: FlatTreeControl<DynamicFlatNode<Comments>>;
 
+    // Fuente de datos dinamica para el Arbol n-ario.
     dataSource!: DynamicDataSource;
 
     constructor(private database: DynamicDatabase) {}
 
     ngOnInit(): void {
+        // Se establecen los comentarios de primer nivel en el servicio
         this.database.setRootLevel(this.comments);
 
         this.treeControl = new FlatTreeControl<DynamicFlatNode<Comments>>(
             this.getLevel,
             this.isExpandable
         );
+
         this.dataSource = new DynamicDataSource(
             this.treeControl,
             this.database
         );
 
+        // Se entregan los datos al arbol para su renderizado.
         this.dataSource.data = this.database.initialData();
     }
 
@@ -46,6 +55,4 @@ export class CommentComponent implements OnInit {
 
     hasChild = (_: number, _nodeData: DynamicFlatNode<Comments>) =>
         _nodeData.expandable;
-
-    renderizar = () => console.log('click');
 }
