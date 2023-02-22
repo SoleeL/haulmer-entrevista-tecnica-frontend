@@ -1,5 +1,10 @@
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 import { DynamicDataSource } from '../../classes/dynamicDataSource-comment';
 import { DynamicFlatNode } from '../../classes/dynamicFlatNode-comment.class';
 import { Comments } from '../../interfaces/comment.interface';
@@ -9,6 +14,7 @@ import { DynamicDatabase } from '../../services/dynamic-database.service';
     selector: 'app-comment',
     templateUrl: './comment.component.html',
     styleUrls: ['./comment.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentComponent implements OnInit {
     @Input() comments!: Comments[];
@@ -40,4 +46,6 @@ export class CommentComponent implements OnInit {
 
     hasChild = (_: number, _nodeData: DynamicFlatNode<Comments>) =>
         _nodeData.expandable;
+
+    renderizar = () => console.log('click');
 }

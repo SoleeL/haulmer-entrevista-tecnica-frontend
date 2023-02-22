@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    NgZone,
+    OnInit,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Story } from '../../interfaces/comment.interface';
 import { Comments } from '../../interfaces/comment.interface';
 
 import { StorieCommentService } from '../../services/storie-comment.service';
-import { switchMap, tap, map } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-main-comment',
@@ -18,7 +23,8 @@ export class MainCommentComponent implements OnInit {
 
     constructor(
         private activatedRoute: ActivatedRoute,
-        private storieCommentService: StorieCommentService
+        private storieCommentService: StorieCommentService,
+        private zone: NgZone
     ) {}
 
     ngOnInit() {
@@ -33,6 +39,12 @@ export class MainCommentComponent implements OnInit {
                 )
             )
             .subscribe(story => {
+                console.log(story.type != 'story');
+                if (story == null || story.type != 'story') {
+                    this.zone.runOutsideAngular(() => {
+                        window.location.href = '/profile/tracks';
+                    });
+                }
                 this.story = story;
                 this.loadCommentsData(this.story.kids!);
             });

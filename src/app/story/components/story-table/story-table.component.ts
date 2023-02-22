@@ -1,5 +1,6 @@
 import {
     AfterViewInit,
+    ChangeDetectionStrategy,
     Component,
     Input,
     OnInit,
@@ -16,6 +17,7 @@ import { Story } from '../../interfaces/story.interface';
     selector: 'app-story-table',
     templateUrl: './story-table.component.html',
     styleUrls: ['./story-table.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StoryTableComponent implements OnInit, AfterViewInit {
     displayedColumns: string[] = ['id', 'by', 'title', 'score', 'comments'];

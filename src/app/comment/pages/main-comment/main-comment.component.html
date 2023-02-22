@@ -3,11 +3,13 @@
 
 <div class="main-body">
     <!-- TODO: Anadir animacion de carga circular -->
-    <div *ngIf="!comments; else divTabla">
-        <mat-spinner></mat-spinner>
+    <div *ngIf="!comments; else storyComments">
+        <div class="wrapper center">
+            <mat-spinner class="inner"></mat-spinner>
+        </div>
     </div>
 
-    <ng-template #divTabla>
+    <ng-template #storyComments>
         <app-story [story]="story"></app-story>
         <app-comment [comments]="comments"></app-comment>
     </ng-template>

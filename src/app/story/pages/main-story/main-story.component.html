@@ -1,12 +1,12 @@
 <div class="main-body">
     <!-- TODO: Anadir animacion de carga circular -->
-    <div *ngIf="!dataSource; else divTabla">
+    <div *ngIf="!dataSource; else tabla">
         <div class="wrapper center">
             <mat-spinner class="inner"></mat-spinner>
         </div>
     </div>
 
-    <ng-template #divTabla>
+    <ng-template #tabla>
         <!-- TODO: Anadir animacion de entrada para la tabla -->
         <!-- TODO: Anadir botos de recarga de los datos -->
         <!-- TODO: Anadir Cron para recarga automatica de los datos -->

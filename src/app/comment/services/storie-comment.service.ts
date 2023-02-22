@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Story, Comments } from '../interfaces/comment.interface';
-import { Observable, forkJoin, of } from 'rxjs';
-import { expand, map, mergeMap, tap } from 'rxjs/operators';
+import { Observable, forkJoin } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',

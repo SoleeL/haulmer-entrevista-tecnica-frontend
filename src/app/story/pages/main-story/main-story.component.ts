@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { switchMap, tap } from 'rxjs/operators';
 import { Story } from '../../interfaces/story.interface';
 
